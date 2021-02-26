@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { GenreButton } from "./components/GenreButton";
 import { SearchMix } from "./components/SearchMix";
+import "./App.css";
 
 function App() {
   const [popular, setPopular] = useState([]);
-  const url = "https://api.mixcloud.com/discover/funk/popular/";
+  const [genre, setGenre] = useState("funk");
+  const url = `https://api.mixcloud.com/discover/${genre}/popular/`;
 
   useEffect(() => {
     async function fetchUrl() {
@@ -17,10 +20,11 @@ function App() {
       }
     }
     fetchUrl();
-  }, []);
+  }, [url]);
 
   return (
     <div className="App">
+      <GenreButton setGenreName={setGenre}/>
       <SearchMix />
       {popular.map((mix, mixIndex) => (
         <li key={mixIndex}>

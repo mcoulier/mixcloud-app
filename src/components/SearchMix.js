@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const SearchMix = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [genre, setGenre] = useState("Electronica");
+  const [genre, setGenre] = useState("funk");
   const [searchType, setSearchType] = useState("cloudcast");
   const [searchData, setSearchData] = useState([]);
   const searchUrl = `https://api.mixcloud.com/search/?q=${searchValue}&type=cloudcast`;
@@ -31,9 +31,7 @@ export const SearchMix = () => {
           <input
             type="text"
             value={searchValue}
-            onChange={(e) =>
-              setSearchValue(e.target.value.replaceAll(" ", "-"))
-            }
+            onChange={(e) => setSearchValue(e.target.value)}
           />
         </label>
         <input type="submit" value="Submit" />
@@ -41,6 +39,7 @@ export const SearchMix = () => {
       {searchData &&
         searchData.map((query, queryIndex) => (
           <li key={queryIndex}>
+            <img src={query.pictures.medium} alt={query.name} />
             <p>{query.name}</p>
             <br />
             {query.url}

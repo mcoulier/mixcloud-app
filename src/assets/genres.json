@@ -1,0 +1,116 @@
+{
+    "data": [
+      {
+        "id": 1,
+        "name": "Ambient"
+      },
+      {
+        "id": 2,
+        "name": "Bass"
+      },
+      {
+        "id": 3,
+        "name": "Beats"
+      },
+      {
+        "id": 4,
+        "name": "Chillout"
+      },
+      {
+        "id": 5,
+        "name": "Classical"
+      },
+      {
+        "id": 6,
+        "name": "Deep-House"
+      },
+      {
+        "id": 7,
+        "name": "Drum & Bass"
+      },
+      {
+        "id": 8,
+        "name": "Dub"
+      },
+      {
+        "id": 9,
+        "name": "Dubstep"
+      },
+      {
+        "id": 10,
+        "name": "EDM"
+      },
+      {
+        "id": 11,
+        "name": "Electronica"
+      },
+      {
+        "id": 12,
+        "name": "Funk"
+      },
+      {
+        "id": 13,
+        "name": "Garage"
+      },
+      {
+        "id": 14,
+        "name": "Hip Hop"
+      },
+      {
+        "id": 15,
+        "name": "House"
+      },
+      {
+        "id": 16,
+        "name": "Indie"
+      },
+      {
+        "id": 17,
+        "name": "Jazz"
+      },
+      {
+        "id": 18,
+        "name": "Pop"
+      },
+      {
+        "id": 19,
+        "name": "Rap"
+      },
+      {
+        "id": 20,
+        "name": "Reggae"
+      },
+      {
+        "id": 21,
+        "name": "R&B"
+      },
+      {
+        "id": 22,
+        "name": "Rock"
+      },
+      {
+        "id": 23,
+        "name": "Soul"
+      },
+      {
+        "id": 24,
+        "name": "Tech House"
+      },
+      {
+        "id": 25,
+        "name": "Techno"
+      },
+      {
+        "id": 26,
+        "name": "Trance"
+      },
+      {
+        "id": 27,
+        "name": "Trap"
+      },
+      {
+        "id": 28,
+        "name": "World"
+      }
+    ]
+  }
