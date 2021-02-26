@@ -2,12 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { GenreButton } from "./GenreButton";
 import { LinearProgress } from "@material-ui/core";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 
 export const PopGenreSearch = () => {
   const [genre, setGenre] = useState("");
@@ -39,7 +33,7 @@ export const PopGenreSearch = () => {
       {isLoading ? (
         <LinearProgress className="loadingBar" />
       ) : (
-        <div className="popList">
+        <div className="popList2">
           {popular &&
             popular.map((mix, mixIndex) => (
               <div key={mixIndex} className="popListItem">

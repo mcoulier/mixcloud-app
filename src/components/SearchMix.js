@@ -1,50 +1,57 @@
 import { useEffect, useState } from "react";
+import { Button, TextField } from "@material-ui/core";
 
 export const SearchMix = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [query, setQuery] = useState("");
+  const [search, setSearch] = useState("");
   const [genre, setGenre] = useState("funk");
   const [searchType, setSearchType] = useState("cloudcast");
   const [searchData, setSearchData] = useState([]);
-  const searchUrl = `https://api.mixcloud.com/search/?q=${searchValue}&type=cloudcast`;
-  const cityUrl = `https://api.mixcloud.com/discover/${genre}+city:${searchValue}/popular/?limit=20&offset=20`;
+  const searchUrl = `https://api.mixcloud.com/search/?q=${query}&type=cloudcast`;
 
   useEffect(() => {
     async function fetchUrl() {
       try {
-        let response = await fetch(cityUrl);
+        let response = await fetch(`https://api.mixcloud.com/discover/${genre}+city:${search}/popular/?limit=20&offset=20`);
         response = await response.json();
         setSearchData(response.data);
-        console.log(cityUrl);
         console.log(response);
       } catch (err) {
         alert(err);
       }
     }
     fetchUrl();
-  }, [cityUrl]);
+  }, [search]);
 
   return (
     <div>
       <form>
         <label>
-          Search:
-          <input
+          Search City:
+          <TextField
             type="text"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
         </label>
-        <input type="submit" value="Submit" />
+        <Button className='submitButton' variant="contained" color="primary" onClick={() => setSearch(query)}>Submit</Button>
       </form>
-      {searchData &&
-        searchData.map((query, queryIndex) => (
-          <li key={queryIndex}>
-            <img src={query.pictures.medium} alt={query.name} />
-            <p>{query.name}</p>
-            <br />
-            {query.url}
-          </li>
-        ))}
+      <div className="popList">
+        {searchData &&
+          searchData.map((query, queryIndex) => (
+            <p className="popListItem" key={queryIndex} onClick={() => console.log('lel')}>
+              <img src={query.pictures.large} alt={query.name} />
+              <h3>{query.name}</h3>
+              <br />
+              {query.url}
+              {query.tags.map((tag, tagIndex) => (
+                  <p className="tags" key={tagIndex}>
+                    {query.tags[tagIndex].name}
+                  </p>
+                ))}
+            </p>
+          ))}
+      </div>
     </div>
   );
 };

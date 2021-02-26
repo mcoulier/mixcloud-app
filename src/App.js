@@ -5,6 +5,8 @@ import { SearchMix } from "./components/SearchMix";
 function App() {
   return (
     <div className="App">
+      <h1>Your Local Funk</h1>
+      <SearchMix/>
       <PopGenreSearch />
     </div>
   );

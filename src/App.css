@@ -6,34 +6,81 @@
 
 body {
   background-color: #262626;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  text-align: center;
 }
 
 .loadingBar {
   margin: 30px;
 }
 
+label {
+  margin-right: 20px;
+}
+
 .genreButton {
-  width: 100%;
+  margin: 10px;
   flex-direction: column;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.topButton {
+  padding: 10px;
 }
 
 .popList {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.popList2 {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .popListItem {
   border: 2px solid darkgrey;
   border-radius: 5px;
-  margin: 5px;
-  justify-content: center;
+  flex-direction: row;
+  flex-basis: auto;
+  flex-wrap: wrap; 
+  width: 330px;
+  height: auto;
+  margin: 10px;
+  padding: 10px;
   background-color: #3F51B5;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.popListItem:hover, .popListItem:focus, .popListItem:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .tags {
   border: 1px solid darkgrey;
+  display: flex;
+  flex-direction: row;
   border-radius: 5px;
   padding: 5px;
   text-align: center;
+  width: 40%;
 }
