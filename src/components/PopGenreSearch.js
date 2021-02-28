@@ -2,12 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { GenreButton } from "./GenreButton";
 import { LinearProgress } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
-export const PopGenreSearch = () => {
-  const [genre, setGenre] = useState("");
+export const PopGenreSearch = (props) => {
+  const [genre, setGenre] = useState("funk");
   const [popular, setPopular] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const url = `https://api.mixcloud.com/discover/${genre}/popular/?limit=10`;
+  const [offset, setOffset] = useState(0);
+  const url = `https://api.mixcloud.com/discover/${genre}/popular/?limit=10&offset=${offset}`;
 
   useEffect(() => {
     setIsLoading(true);
@@ -16,6 +18,7 @@ export const PopGenreSearch = () => {
         let response = await fetch(url);
         setIsLoading(false);
         response = await response.json();
+        console.log(response.paging.next);
         console.log(response.data);
         setPopular(response.data);
       } catch (err) {
@@ -26,40 +29,48 @@ export const PopGenreSearch = () => {
     fetchUrl();
   }, [url]);
 
+  const handleNext = () => {
+    setOffset(offset + 10);
+  };
+
   return (
-    <div>
+    <>
+      <h1>MUSIC SEARCH</h1>
       <GenreButton setGenreName={setGenre} value={genre} />
       <h1>Top 10 {genre}</h1>
       {isLoading ? (
         <LinearProgress className="loadingBar" />
       ) : (
         <div className="popList2">
-          {popular &&
-            popular.map((mix, mixIndex) => (
-              <div key={mixIndex} className="popListItem">
-                <img src={mix.pictures.large} alt={mix.name} />
-                <h2>{mix.name}</h2>
-                <h3>
-                  <img src={mix.user.pictures.small} alt={mix.user.name} />
-                  {mix.user.name}
-                </h3>
-
-                {mix.tags.map((tag, tagIndex) => (
-                  <p className="tags" key={tagIndex}>
-                    {mix.tags[tagIndex].name}
-                  </p>
-                ))}
-
-                <p>Plays: {mix.play_count}</p>
-                <p>Favorites: {mix.favorite_count}</p>
-                <a href={mix.url} target="_blank" rel="noreferrer">
-                  Listen!
-                </a>
-                <br />
-              </div>
-            ))}
+          {popular.map((mix, mixIndex) => (
+            <div
+              key={mixIndex}
+              className="popListItem"
+              onClick={() => console.log(`clicky ${mixIndex}`)}
+            >
+              <img src={mix.pictures.large} alt={mix.name} />
+              <h3>{mix.name}</h3>
+              {mix.tags.map((tag, tagIndex) => (
+                <ul className="tags" key={tagIndex}>
+                  {mix.tags[tagIndex].name}
+                </ul>
+              ))}
+              <br />
+              <a href={mix.url} target="_blank" rel="noreferrer">
+                Listen!
+              </a>
+              <br />
+              <h3 className="popUser">
+                <img src={mix.user.pictures.small} alt={mix.user.name} />
+                {mix.user.name}
+              </h3>
+            </div>
+          ))}
         </div>
       )}
-    </div>
+      <Button variant="contained" color="primary" onClick={handleNext}>
+        NEXT
+      </Button>
+    </>
   );
 };

@@ -1,13 +1,13 @@
 import "./App.css";
+import Footer from "./components/Footer";
 import { PopGenreSearch } from "./components/PopGenreSearch";
 import { SearchMix } from "./components/SearchMix";
 
 function App() {
   return (
     <div className="App">
-      <h1>Your Local Funk</h1>
-      <SearchMix/>
       <PopGenreSearch />
+      <Footer/>
     </div>
   );
 }

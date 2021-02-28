@@ -10,11 +10,45 @@ body {
 }
 
 h1 {
+  letter-spacing: 5px;
+  text-shadow: 1px 1px #c01010;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+h2 {
+  font-size: 12px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+  padding: 5px;
+  color: #374491;
+}
+
+.footer {
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background: #1d1d1d;
   text-align: center;
 }
 
+img {
+  display:block;
+  margin:auto;
+  border-radius: 9%;
+  border: 2px solid #3F51B5;
+}
+
 .loadingBar {
-  margin: 30px;
+  margin-top: 50px;
 }
 
 label {
@@ -24,6 +58,7 @@ label {
 .genreButton {
   margin: 10px;
   flex-direction: column;
+  align-items: center;
 }
 
 form {
@@ -47,22 +82,18 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
 }
 
 .popListItem {
-  border: 2px solid darkgrey;
-  border-radius: 5px;
-  flex-direction: row;
-  flex-basis: auto;
-  flex-wrap: wrap; 
-  width: 330px;
-  height: auto;
-  margin: 10px;
+  border: 4px solid #2c3880;
+  border-radius: 7px;
+  width: 350px;
+  margin: 20px;
   padding: 10px;
-  background-color: #3F51B5;
+  background-color: #d2d8d3;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;
   -webkit-transition-property: box-shadow, transform;
@@ -77,10 +108,13 @@ form {
 
 .tags {
   border: 1px solid darkgrey;
-  display: flex;
-  flex-direction: row;
   border-radius: 5px;
   padding: 5px;
+  box-shadow: 2px 1px 5px #3b3b3b;
+  font-size: 13px;
   text-align: center;
-  width: 40%;
+  display:inline-block;
+  margin: 5px;
+  color: antiquewhite;
+  background-color: rgb(128, 138, 192);
 }

@@ -17,7 +17,7 @@ export const GenreButton = (props) => {
               value={genre.id}
               color="primary"
               key={genre.id}
-              className='topButton'
+              className="topButton"
             >
               {genre.name}
             </Button>
