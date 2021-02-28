@@ -11,7 +11,7 @@ export const GenreButton = (props) => {
         genresJSON.map((genre) => {
           return (
             <Button
-              onClick={(e) => props.setGenreName(genre.name)}
+              onClick={(e) => {props.setGenreName(genre.name); props.offset(0)}}
               variant="contained"
               size="large"
               value={genre.id}

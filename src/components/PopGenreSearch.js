@@ -36,7 +36,7 @@ export const PopGenreSearch = (props) => {
   return (
     <>
       <h1>MUSIC SEARCH</h1>
-      <GenreButton setGenreName={setGenre} value={genre} />
+      <GenreButton setGenreName={setGenre} offset={setOffset}/>
       <h1>Top 10 {genre}</h1>
       {isLoading ? (
         <LinearProgress className="loadingBar" />
