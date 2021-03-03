@@ -8,6 +8,11 @@ export const SearchMix = (props) => {
   const [searchData, setSearchData] = useState([]);
   const searchUrl = `https://api.mixcloud.com/search/?q=${query}&type=cloudcast`;
 
+  const handleChange = (e) => {
+    const search = query.replace(/\s+/g, "-").toLowerCase();
+    setSearch(search);
+  };
+
   useEffect(() => {
     async function fetchUrl() {
       try {
@@ -31,7 +36,6 @@ export const SearchMix = (props) => {
           Search City:
           <TextField
             type="text"
-            value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </label>
@@ -39,7 +43,7 @@ export const SearchMix = (props) => {
           className="submitButton"
           variant="contained"
           color="primary"
-          onClick={() => setSearch(query)}
+          onClick={handleChange}
         >
           Submit
         </Button>
@@ -52,15 +56,15 @@ export const SearchMix = (props) => {
               key={queryIndex}
               onClick={() => console.log("lel")}
             >
-                <img src={query.pictures.large} alt={query.name} />
-                <h3>{query.name}</h3>
--                {query.tags.map((tag, tagIndex) => (
-                  <p className="tags" key={tagIndex}>
-                    {query.tags[tagIndex].name}
-                  </p>
-                ))}
-                <br />
--              <a href={query.url} target="_blank" rel="noreferrer">
+              <img src={query.pictures.large} alt={query.name} />
+              <h3>{query.name}</h3>-{" "}
+              {query.tags.map((tag, tagIndex) => (
+                <p className="tags" key={tagIndex}>
+                  {query.tags[tagIndex].name}
+                </p>
+              ))}
+              <br />-{" "}
+              <a href={query.url} target="_blank" rel="noreferrer">
                 Listen!
               </a>
             </div>

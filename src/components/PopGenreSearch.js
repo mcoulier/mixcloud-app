@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { GenreButton } from "./GenreButton";
-import { LinearProgress } from "@material-ui/core";
+import { LinearProgress, CircularProgress } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 
 export const PopGenreSearch = (props) => {
@@ -18,7 +18,6 @@ export const PopGenreSearch = (props) => {
         let response = await fetch(url);
         setIsLoading(false);
         response = await response.json();
-        console.log(response.paging.next);
         console.log(response.data);
         setPopular(response.data);
       } catch (err) {
@@ -36,10 +35,13 @@ export const PopGenreSearch = (props) => {
   return (
     <>
       <h1>MUSIC SEARCH</h1>
-      <GenreButton setGenreName={setGenre} offset={setOffset}/>
+      <GenreButton setGenreName={setGenre} offset={setOffset} />
       <h1>Top 10 {genre}</h1>
       {isLoading ? (
-        <LinearProgress className="loadingBar" />
+        <div className="loadingDiv">
+          {/* <LinearProgress className="loadingBar" /> */}
+          <CircularProgress className="loadingBar" />
+        </div>
       ) : (
         <div className="popList2">
           {popular.map((mix, mixIndex) => (
@@ -66,11 +68,11 @@ export const PopGenreSearch = (props) => {
               </h3>
             </div>
           ))}
+          <Button variant="contained" color="primary" onClick={handleNext}>
+            NEXT
+          </Button>
         </div>
       )}
-      <Button variant="contained" color="primary" onClick={handleNext}>
-        NEXT
-      </Button>
     </>
   );
 };

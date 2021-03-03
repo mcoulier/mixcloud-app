@@ -13,8 +13,6 @@ export const GenreButton = (props) => {
             <Button
               onClick={(e) => {props.setGenreName(genre.name); props.offset(0)}}
               variant="contained"
-              size="large"
-              value={genre.id}
               color="primary"
               key={genre.id}
               className="topButton"

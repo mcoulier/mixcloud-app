@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="App">
       <PopGenreSearch />
-      <Footer/>
+      <Footer />
+      <SearchMix />
     </div>
   );
 }
