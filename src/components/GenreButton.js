@@ -1,26 +1,46 @@
 import React from "react";
 import Genre from "../assets/genres.json";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
-export const GenreButton = (props) => {
+const useStyles = makeStyles((theme) => ({
+  title: {
+    textAlign: "center",
+    textShadow: "1px 1px #c01010",
+    color: "#374491",
+    fontSize: "50px",
+  },
+  buttonContainer: {
+    display: "flex",
+    flexFlow: "row wrap",
+    justifyContent: "center",
+  },
+}));
+
+export default function GenreButton({ setGenre }) {
+  const classes = useStyles();
   const genresJSON = Genre.data;
 
   return (
-    <div className="genreButton">
-      {genresJSON &&
-        genresJSON.map((genre) => {
-          return (
-            <Button
-              onClick={(e) => {props.setGenreName(genre.name); props.offset(0)}}
-              variant="contained"
-              color="primary"
-              key={genre.id}
-              className="topButton"
-            >
-              {genre.name}
-            </Button>
-          );
-        })}
-    </div>
+    <>
+      <Typography className={classes.title}>MUSIC SEARCH</Typography>
+      <div className={classes.buttonContainer}>
+        {genresJSON &&
+          genresJSON.map((genre) => {
+            return (
+              <Button
+                onClick={(e) => {
+                  setGenre(genre.name);
+                }}
+                variant="contained"
+                color="primary"
+                key={genre.id}
+              >
+                {genre.name}
+              </Button>
+            );
+          })}
+      </div>
+    </>
   );
-};
+}

@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -29,19 +29,6 @@ h1, h2, h3 {
   text-align: center;
   padding: 5px;
   color: #374491;
-}
-
-.footer {
-/*   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0; */
-  flex: 0 0 40px;
-  width: 100%;
-  padding: 10px;
-  margin-top: auto;
-  background: #1d1d1d;
-  text-align: center;
 }
 
 img {
@@ -130,4 +117,4 @@ form {
   margin: 5px;
   color: antiquewhite;
   background-color: rgb(128, 138, 192);
-}
+} */

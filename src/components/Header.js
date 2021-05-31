@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Footer (){
+export default function Header () {
   const classes = useStyles();
 
-  return <footer className={classes.footer}>2021</footer>;
+  return <header className={classes.footer}>2021</header>;
 };

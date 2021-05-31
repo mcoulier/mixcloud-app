@@ -34,10 +34,7 @@ export const SearchMix = (props) => {
       <form>
         <label>
           Search City:
-          <TextField
-            type="text"
-            onChange={(e) => setQuery(e.target.value)}
-          />
+          <TextField type="text" onChange={(e) => setQuery(e.target.value)} />
         </label>
         <Button
           className="submitButton"
@@ -57,13 +54,11 @@ export const SearchMix = (props) => {
               onClick={() => console.log("lel")}
             >
               <img src={query.pictures.large} alt={query.name} />
-              <h3>{query.name}</h3>-{" "}
+              <h3>{query.name}</h3>
               {query.tags.map((tag, tagIndex) => (
-                <p className="tags" key={tagIndex}>
-                  {query.tags[tagIndex].name}
-                </p>
+                <p className="tags">{query.tags[tagIndex].name}</p>
               ))}
-              <br />-{" "}
+              <br />
               <a href={query.url} target="_blank" rel="noreferrer">
                 Listen!
               </a>
